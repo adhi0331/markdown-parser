@@ -16,6 +16,5 @@ public class MarkdownParseTest {
         String content = Files.readString(fileName);
         assertEquals(answers.get(0), MarkdownParse.getLinks(content).get(0)); 
         assertEquals(answers.get(1), MarkdownParse.getLinks(content).get(1));
-
     }
 }
