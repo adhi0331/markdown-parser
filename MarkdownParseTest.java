@@ -17,4 +17,6 @@ public class MarkdownParseTest {
         assertEquals(answers.get(0), MarkdownParse.getLinks(content).get(0)); 
         assertEquals(answers.get(1), MarkdownParse.getLinks(content).get(1));
     }
+
+    
 }
