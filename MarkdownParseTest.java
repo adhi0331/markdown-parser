@@ -1,5 +1,6 @@
 import static org.junit.Assert.*;
 
+import java.beans.Transient;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -17,5 +18,14 @@ public class MarkdownParseTest {
         assertEquals(answers.get(0), MarkdownParse.getLinks(content).get(0)); 
         assertEquals(answers.get(1), MarkdownParse.getLinks(content).get(1));
     }
+
+    @Test
+    public void checkNoSecondParen() throws IOException{
+        ArrayList<String> answers = new ArrayList<>();
+        Path fileName = Path.of("myFile2.md");
+        String content = Files.readString(fileName);
+        assertEquals(answers.size(), MarkdownParse.getLinks(content).size());
+    }
+    
 
 }
