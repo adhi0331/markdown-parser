@@ -18,5 +18,9 @@ public class MarkdownParseTest {
         assertEquals(answers.get(1), MarkdownParse.getLinks(content).get(1));
     }
 
+    public void testGithubActions(){
+        assertEquals(1+1, 0);
+    }
+
     
 }
