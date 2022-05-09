@@ -1,0 +1,5 @@
+make --dry-run --always-make --keep-going --print-directory
+make: Entering directory `/Users/adhi03/Desktop/SchoolStuff/College/CSE15L/markdown-parser'
+javac MarkdownParse.java
+make: Leaving directory `/Users/adhi03/Desktop/SchoolStuff/College/CSE15L/markdown-parser'
+ 
