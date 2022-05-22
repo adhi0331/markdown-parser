@@ -19,15 +19,26 @@ public class MarkdownParse {
             int closeBracket = markdown.indexOf("]", openBracket);
             int openParen = markdown.indexOf("(", closeBracket);
             if (closeBracket + 1 != openParen){
+                currentIndex = closeBracket;
                 continue;
             }
             int closeParen = markdown.indexOf(")", openParen);
+            String link = markdown.substring(openParen + 1, closeParen);
+            
+            
+            if(link.contains("[") || link.contains("]") ||
+                link.contains("{") || link.contains("}") || 
+                link.contains("|") || link.contains("\\") || 
+                link.contains("~") || link.contains("^") || 
+                link.contains("`")) break;
+            
             if (markdown.substring(openParen + 1, closeParen).indexOf("[") == -1
                 && markdown.substring(openParen + 1, closeParen).indexOf("]") == -1 
                 && markdown.substring(openParen + 1, closeParen).indexOf("(") == -1
                 && markdown.substring(openParen + 1, closeParen).indexOf(")") == -1){
-                toReturn.add(markdown.substring(openParen + 1, closeParen));
+                toReturn.add(link);
             }
+            
             currentIndex = closeParen + 1;
         }
 
@@ -36,7 +47,7 @@ public class MarkdownParse {
 
 
     public static void main(String[] args) throws IOException {
-        Path fileName = Path.of(args[0]);
+        Path fileName = Path.of("snippet2.md");
         String content = Files.readString(fileName);
         ArrayList<String> links = getLinks(content);
 	System.out.println(links);
